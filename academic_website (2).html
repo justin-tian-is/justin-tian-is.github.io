@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Jiayuan Tian - Academic Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.2);
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .title {
+            font-size: 1.3rem;
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: #ecf0f1;
+        }
+        
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-item a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #3498db;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-item a:hover {
+            color: #3498db;
+        }
+        
+        .nav-item a:hover::after {
+            width: 80%;
+        }
+        
+        main {
+            padding: 4rem 0;
+        }
+        
+        .section {
+            background: white;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .section h3:first-of-type {
+            margin-top: 0;
+        }
+        
+        .research-area {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .publication {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s ease;
+        }
+        
+        .publication:hover {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .publication:last-child {
+            border-bottom: none;
+        }
+        
+        .pub-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .pub-authors {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pub-venue {
+            color: #3498db;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-links {
+            margin-top: 0.5rem;
+        }
+        
+        .pub-link {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .pub-link:hover {
+            background: #2980b9;
+        }
+        
+        .cv-section {
+            margin-bottom: 2rem;
+        }
+        
+        .cv-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cv-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cv-date {
+            min-width: 120px;
+            font-weight: 600;
+            color: #3498db;
+        }
+        
+        .cv-content {
+            flex: 1;
+        }
+        
+        .cv-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+        
+        .cv-institution {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        
+        .cv-description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-list li {
+            padding: 0.3rem 0;
+            color: #555;
+        }
+        
+        .skill-list li::before {
+            content: '▶';
+            color: #3498db;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #34495e;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: #3498db;
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-item a {
+                padding: 0.8rem 1rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cv-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .cv-date {
+                min-width: auto;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .highlight-box h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .status-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+        
+        .under-review {
+            background: #f39c12;
+        }
+        
+        .in-prep {
+            background: #9b59b6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://via.placeholder.com/180x180/3498db/ffffff?text=JT" alt="Justin Tian Profile Photo" class="profile-img">
+                <div class="header-text">
+                    <h1>Justin Jiayuan Tian</h1>
+                    <div class="title">PhD Candidate in Information Systems | Aspiring Faculty Member</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:justin.tian@warrington.ufl.edu">justin.tian@warrington.ufl.edu</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>(313) 265-0834</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🏛️</span>
+                            <span>University of Florida, Warrington College of Business</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📍</span>
+                            <span>Gainesville, Florida</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#about">About</a></li>
+                    <li class="nav-item"><a href="#research">Research</a></li>
+                    <li class="nav-item"><a href="#teaching">Teaching</a></li>
+                    <li class="nav-item"><a href="#honors">Honors & Service</a></li>
+                    <li class="nav-item"><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Welcome to my academic portfolio. I am a PhD candidate in Information Systems at the University of Florida's Warrington College of Business, working under the supervision of Dr. Liangfei Qiu. My research focuses on the societal impact of emerging technologies, particularly exploring how innovations like Generative AI, autonomous vehicles, and digital health platforms reshape human behavior and social outcomes.</p>
+            
+            <p>I am currently on the academic job market, seeking faculty positions where I can contribute to cutting-edge research at the intersection of technology and society. My work employs rigorous econometric methods, machine learning, and field experiments to understand the complex relationships between technological adoption and societal well-being.</p>
+
+
+
+            <h3>Current Status</h3>
+            <p><strong>Expected Defense:</strong> 2026<br>
+            <strong>Advisor:</strong> Dr. Liangfei Qiu (PricewaterhouseCoopers ISOM Professor)<br>
+            <strong>GPA:</strong> 3.96/4.0</p>
+        </section>
+
+        <section id="research" class="section">
+            <h2>Research Interests & Publications</h2>
+            
+            <div class="research-area">
+                <h3>Societal Impact of Emerging Technologies</h3>
+                <p>My primary research stream investigates how cutting-edge technologies—including Generative AI, autonomous vehicles (robotaxis), and digital platforms—influence human behavior, social equity, and economic outcomes. I examine both intended and unintended consequences of technological adoption, with particular attention to issues of digital divide and accessibility.</p>
+            </div>
+
+            <div class="research-area">
+                <h3>Health Information Technology</h3>
+                <p>I study the transformative effects of digital health innovations on healthcare delivery and patient outcomes. My work explores telemedicine adoption patterns, digital mental health services, and the role of physician peer networks in online healthcare platforms. This research has significant implications for healthcare policy and practice.</p>
+            </div>
+
+            <div class="research-area">
+                <h3>Economics of Technology Platforms</h3>
+                <p>My research examines economic dynamics within digital platforms, including e-commerce live streaming, ride-hailing services, and online gambling platforms. I investigate how platform design choices affect user behavior, market outcomes, and societal welfare, employing both experimental and observational methods.</p>
+            </div>
+
+            <h3>Methodological Expertise</h3>
+            <ul>
+                <li><strong>Econometrics:</strong> Advanced causal inference methods, natural experiments, difference-in-differences</li>
+                <li><strong>Machine Learning:</strong> Predictive modeling, deep learning applications in social science</li>
+                <li><strong>Field Experiments:</strong> Large-scale randomized controlled trials in digital environments</li>
+                <li><strong>Data Analytics:</strong> Big data processing, social media analytics, behavioral data mining</li>
+            </ul>
+
+            <h3>Papers Under Review</h3>
+            
+            <div class="publication">
+                <div class="pub-title">Primed for Growth or Fade: An Empirical Investigation of the Impact of Telemedicine Adoption on Healthcare Channel Migration Behavior</div>
+                <div class="pub-authors">Naveen Kumar, <strong>Jiayuan Tian</strong> (Co-first author), Liangfei Qiu, Subodha Kumar, Rachel Umoren, Taylor Sawyer</div>
+                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under 2nd Round Review</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Live-Streaming vs. Traditional E-Commerce: Unveiling the Sales and Product Return Advantages of Brand-Led Live Streaming</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Yuan Sun, Liangfei Qiu</div>
+                <div class="pub-venue">MIS Quarterly <span class="status-badge under-review">Under Major Revision</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Peer Power: How Physician Peer Endorsements Shape Patient Choices on Online Healthcare Platforms</div>
+                <div class="pub-authors">Lun Li, <strong>Jiayuan Tian</strong>, Qiuju Yin, Liangfei Qiu, Zhijun Yan</div>
+                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under Major Revision</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Pleasure or Peril? The Rise of Online Sports Gambling and Its Mental Health Impact</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Guohou Shan, Michael Rivera, Liangfei Qiu, Md Mahmudul Hasan</div>
+                <div class="pub-venue">MIS Quarterly <span class="status-badge under-review">Under Review</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">How Does Ride-Hailing Congestion Pricing Shape Digital Access and Transportation Equity? Evidence from a Natural Experiment in Chicago</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Min Chen, Liangfei Qiu</div>
+                <div class="pub-venue">Production and Operations Management <span class="status-badge under-review">Under Review</span></div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">AI-Powered vs. Manual Advertising: A Field Experiment in E-Commerce</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Vincent Zhao, Yuan Sun, Liangfei Qiu</div>
+                <div class="pub-venue">Information Systems Research <span class="status-badge in-prep">In Preparation</span></div>
+            </div>
+
+            <h3>Working Papers</h3>
+            
+            <div class="publication">
+                <div class="pub-title">Driving in the Lane Next to AI: Do Robotaxis Make Human Drivers Bolder or Better?</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Jingyan Dai, Xinzhi Rao, Liangfei Qiu</div>
+                <div class="pub-venue">Working Paper</div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Substitute or Supplement? Generative AI and News Consumption</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Zixi Lei, Wen Wen, Liangfei Qiu</div>
+                <div class="pub-venue">Working Paper</div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Does Digital Mental Healthcare Service Access Affect Care Outcomes? Evidence from a Natural Experiment</div>
+                <div class="pub-authors">Guohou Shan, <strong>Jiayuan Tian</strong> (Co-first author), Liangfei Qiu</div>
+                <div class="pub-venue">Working Paper</div>
+            </div>
+
+            <h3>Selected Conference Presentations (2023-2025)</h3>
+            <ul>
+                <li><strong>CHITA 2025</strong> (Austin, TX), <strong>POMS 2025</strong> (Atlanta, GA), <strong>INFORMS 2025</strong> (Atlanta, GA) - "Pleasure or Peril? The Rise of Online Sports Gambling and Its Mental Health Impact"</li>
+                <li><strong>CIST 2024</strong> (Seattle, WA) - "How Does Ride-Hailing Congestion Pricing Shape Digital Access and Transportation Equity?"</li>
+                <li><strong>AMCIS 2024</strong> (Salt Lake City, UT) - "Angel or Devil: Telehealth Across Borderlines and Healthcare Outcomes"</li>
+                <li><strong>POMS 2024</strong> (Seattle, WA) - "Primed for Growth or Fade: Telemedicine Adoption and Healthcare Channel Migration"</li>
+                <li><strong>INFORMS 2023</strong> (Seattle, WA) - "Digital Mental Healthcare Service Access and Care Outcomes"</li>
+            </ul>
+        </section>
+
+        <section id="teaching" class="section">
+            <h2>Teaching Experience & Philosophy</h2>
+            
+            <p>I am passionate about bridging the gap between theoretical knowledge and practical application in information systems and data analytics. My teaching philosophy emphasizes hands-on learning, critical thinking about technology's societal impact, and empowering students to become thoughtful technology leaders.</p>
+
+            <h3>Instructor Experience</h3>
+            <div class="cv-section">
+                <div class="cv-item">
+                    <div class="cv-date">Current</div>
+                    <div class="cv-content">
+                        <div class="cv-title">Instructor - QMB 4702 Managerial Operations Analysis 2</div>
+                        <div class="cv-institution">University of Florida (Undergraduate Core Course)</div>
+                        <div class="cv-description">Teaching operations analysis to 49 undergraduate students | Student Evaluation: 4.6/5.0</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Teaching Assistant Experience</h3>
+            <div class="cv-section">
+                <div class="cv-item">
+                    <div class="cv-date">2022-2024</div>
+                    <div class="cv-content">
+                        <div class="cv-title">Teaching Assistant - QMB 5303 Managerial Statistics</div>
+                        <div class="cv-institution">University of Florida</div>
+                        <div class="cv-description">Supported graduate-level statistics education, led discussion sections and lab sessions</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">2021-2023</div>
+                    <div class="cv-content">
+                        <div class="cv-title">Teaching Assistant - MAN 5502 Production and Operations Management</div>
+                        <div class="cv-institution">University of Florida</div>
+                        <div class="cv-description">Assisted with graduate-level operations management coursework</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Courses I'm Prepared to Teach</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Information Systems</h4>
+                    <ul class="skill-list">
+                        <li>Introduction to Information Systems</li>
+                        <li>Technology and Society</li>
+                        <li>Digital Innovation & Entrepreneurship</li>
+                        <li>Health Information Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Analytics & Methods</h4>
+                    <ul class="skill-list">
+                        <li>Data Analytics for Business</li>
+                        <li>Applied Machine Learning</li>
+                        <li>Business Statistics</li>
+                        <li>Research Methods in IS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Graduate Seminars</h4>
+                    <ul class="skill-list">
+                        <li>Econometrics for IS Research</li>
+                        <li>Technology & Social Impact</li>
+                        <li>Advanced Research Methods</li>
+                        <li>Dissertation Research</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="cv" class="section">
+            <h2>Curriculum Vitae</h2>
+            
+            <div class="highlight-box">
+                <h3>Download Complete CV</h3>
+                <p>For a comprehensive view of my academic background, publications, and achievements</p>
+                <a href="#" class="btn">Download PDF CV</a>
+            </div>
+
+            <h3>Education</h3>
+            <div class="cv-section">
+                <div class="cv-item">
+                    <div class="cv-date">2021-2026</div>
+                    <div class="cv-content">
+                        <div class="cv-title">PhD in Information Systems</div>
+                        <div class="cv-institution">University of Florida, Gainesville, FL</div>
+                        <div class="cv-description">GPA: 3.96/4.0 | Advisor: Dr. Liangfei Qiu (PricewaterhouseCoopers ISOM Professor)</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">2019-2021</div>
+                    <div class="cv-content">
+                        <div class="cv-title">Master of Data Science</div>
+                        <div class="cv-institution">Brown University, Providence, RI</div>
+                        <div class="cv-description">Comprehensive training in statistical modeling, machine learning, and computational methods</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">2015-2019</div>
+                    <div class="cv-content">
+                        <div class="cv-title">Bachelor of Mathematics & Economics (Double Major)</div>
+                        <div class="cv-institution">Lafayette College, Easton, PA</div>
+                        <div class="cv-description">Strong foundation in mathematical modeling and economic theory</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Honors & Recognition</h3>
+            <div class="cv-section">
+                <div class="cv-item">
+                    <div class="cv-date">2025</div>
+                    <div class="cv-content">
+                        <div class="cv-title">CHITA Doctoral Consortium</div>
+                        <div class="cv-institution">Selected Participant</div>
+                        <div class="cv-description">Competitive selection for premier health IT research consortium</div>
+                    </div>
+                </div>
+                
+                <div class="cv-item">
+                    <div class="cv-date">2024</div>
+                    <div class="cv-content">
+                        <div class="cv-title">INFORMS ISS Doctoral Consortium</div>
+                        <div class="cv-institution">Selected Participant</div>
+                        <div class="cv-description">Inaugural Information Systems Society Doctoral Consortium participant</div>
+                    </div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-date">2024</div>
+                    <div class="cv-content">
+                        <div class="cv-title">POMS Doctoral Consortium</div>
+                        <div class="cv-institution">Selected Participant</div>
+                        <div class="cv-description">Production and Operations Management Society Doctoral Consortium</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Service & Leadership</h3>
+            <div class="cv-section">
+                <div class="cv-item">
+                    <div class="
