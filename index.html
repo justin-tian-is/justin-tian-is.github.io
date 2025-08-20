@@ -199,6 +199,24 @@
             margin-top: 0.5rem;
         }
         
+        /* New style for research topic headers */
+        .research-topic-header {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 4px solid #3498db;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .research-topic-header:first-of-type {
+            margin-top: 1rem;
+        }
+        
         .research-area {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             padding: 1.5rem;
@@ -586,18 +604,13 @@
             <h2>Research</h2>
             <h3>Research Interests</h3>
             <div class="research-area">
-                <h3>Societal Impact of Technologies</h3>
+                <h3>Societal & Economic Impact of Emerging Technology (Digital Platforms & AI)</h3>
                 <p>My primary research stream investigates how emerging technologies like AI, autonomous vehicles, online gambling, and digital platforms affect human behavior, social welfare, and economic outcomes, particularly studying their unintended consequences and impacts on inequality.</p>
             </div>
 
             <div class="research-area">
-                <h3>Health Information Technology</h3>
+                <h3>Health IT</h3>
                 <p>I study how digital health technologies like telemedicine and online health platforms are transforming healthcare delivery and patient outcomes, with a focus on adoption patterns and physician networks.</p>
-            </div>
-
-            <div class="research-area">
-                <h3>Economics of Emerging Technologies</h3>
-                <p>My research examines the economic dynamics of digital technologies like AI, e-commerce live streaming, and ride-hailing, investigating how they influence user behavior and market outcomes through experimental and observational research methods.</p>
             </div>
 
             <h3>Methodological Expertise</h3>
@@ -608,38 +621,16 @@
                 <li><strong>Programming Skills:</strong> Python, R, SQL, Stata, Matlab, Latex, HTML</li>
             </ul>
 
-            <h3>Papers Under Review</h3>
+            <h3>Research In Progress</h3>
             
-            <div class="publication">
-                <div class="pub-title">Primed for Growth or Fade: An Empirical Investigation of the Impact of Telemedicine Adoption on Healthcare Channel Migration Behavior</div>
-                <div class="pub-authors">Naveen Kumar, <strong>Jiayuan Tian</strong> (Co-first author), Liangfei Qiu, Subodha Kumar, Rachel Umoren, Taylor Sawyer</div>
-                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under 2nd Round Review</span></div>
-                <div class="pub-links">
-                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713156" class="pub-link" target="_blank">SSRN</a>
-                </div>
-            </div>
-
+            <div class="research-topic-header">Topic 1: Societal & Economic Impact of Emerging Technology</div>
+            
             <div class="publication">
                 <div class="pub-title">Live-Streaming vs. Traditional E-Commerce: Unveiling the Sales and Product Return Advantages of Brand-Led Live Streaming</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Yuan Sun, Liangfei Qiu</div>
                 <div class="pub-venue">MIS Quarterly <span class="status-badge under-review">Under Major Revision</span></div>
                 <div class="pub-links">
                     <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5023442" class="pub-link" target="_blank">SSRN</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Peer Power: How Physician Peer Endorsements Shape Patient Choices on Online Healthcare Platforms</div>
-                <div class="pub-authors">Lun Li, <strong>Jiayuan Tian</strong>, Qiuju Yin, Liangfei Qiu, Zhijun Yan</div>
-                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under Major Revision</span></div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Pleasure or Peril? The Rise of Online Sports Gambling and Its Mental Health Impact</div>
-                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Guohou Shan, Michael Rivera, Liangfei Qiu, Md Mahmudul Hasan</div>
-                <div class="pub-venue">MIS Quarterly <span class="status-badge">Under Review</span></div>
-                <div class="pub-links">
-                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5006411" class="pub-link" target="_blank">SSRN</a>
                 </div>
             </div>
 
@@ -653,6 +644,15 @@
             </div>
 
             <div class="publication">
+                <div class="pub-title">Pleasure or Peril? The Rise of Online Sports Gambling and Its Mental Health Impact</div>
+                <div class="pub-authors"><strong>Jiayuan Tian</strong>, Guohou Shan, Michael Rivera, Liangfei Qiu, Md Mahmudul Hasan</div>
+                <div class="pub-venue">MIS Quarterly <span class="status-badge">Under Review</span></div>
+                <div class="pub-links">
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5006411" class="pub-link" target="_blank">SSRN</a>
+                </div>
+            </div>
+
+            <div class="publication">
                 <div class="pub-title">AI-Powered vs. Manual Advertising: A Field Experiment in E-Commerce</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Vincent Zhao, Yuan Sun, Liangfei Qiu</div>
                 <div class="pub-venue">Information Systems Research <span class="status-badge in-prep">Under Review</span></div>
@@ -661,8 +661,6 @@
                 </div>
             </div>
 
-            <h3>Working Papers</h3>
-            
             <div class="publication">
                 <div class="pub-title">Driving in the Lane Next to AI: Do Robotaxis Make Human Drivers Bolder or Better?</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Jingyan Dai, Xinzhi Rao, Liangfei Qiu</div>
@@ -673,6 +671,23 @@
                 <div class="pub-title">Substitute or Supplement? Generative AI and News Consumption</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Zixi Lei, Wen Wen, Liangfei Qiu</div>
                 <div class="pub-venue">Working Paper</div>
+            </div>
+
+            <div class="research-topic-header">Topic 2: Health IT</div>
+            
+            <div class="publication">
+                <div class="pub-title">Primed for Growth or Fade: An Empirical Investigation of the Impact of Telemedicine Adoption on Healthcare Channel Migration Behavior</div>
+                <div class="pub-authors">Naveen Kumar, <strong>Jiayuan Tian</strong> (Co-first author), Liangfei Qiu, Subodha Kumar, Rachel Umoren, Taylor Sawyer</div>
+                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under 2nd Round Review</span></div>
+                <div class="pub-links">
+                    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4713156" class="pub-link" target="_blank">SSRN</a>
+                </div>
+            </div>
+
+            <div class="publication">
+                <div class="pub-title">Peer Power: How Physician Peer Endorsements Shape Patient Choices on Online Healthcare Platforms</div>
+                <div class="pub-authors">Lun Li, <strong>Jiayuan Tian</strong>, Qiuju Yin, Liangfei Qiu, Zhijun Yan</div>
+                <div class="pub-venue">Information Systems Research <span class="status-badge under-review">Under Major Revision</span></div>
             </div>
 
             <div class="publication">
@@ -750,7 +765,7 @@ at UF, as a senior, and Professor Tian is one of my favorite instructors I've ha
                     <h4>Analytics & Methods</h4>
                     <ul class="skill-list">
                         <li>Data Analytics for Business</li>
-                        <li>AI Applications and Applied Machine Learning</li>
+                        <li>AI Applications in Business</li>
                         <li>Business Statistics</li>
                         <li>Research Methods in IS</li>
                     </ul>
