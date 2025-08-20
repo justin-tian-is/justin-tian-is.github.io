@@ -280,6 +280,57 @@
             background: #2980b9;
         }
         
+        /* Abstract button styling */
+        .abstract-btn {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .abstract-btn:hover {
+            background: #219a52;
+            transform: translateY(-1px);
+        }
+        
+        .abstract-btn.active {
+            background: #e74c3c;
+        }
+        
+        .abstract-btn.active:hover {
+            background: #c0392b;
+        }
+        
+        /* Abstract content styling */
+        .abstract-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .abstract-content.expanded {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+        
+        .abstract-text {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
         .cv-section {
             margin-bottom: 2rem;
         }
@@ -663,6 +714,14 @@
                 <div class="pub-title">Driving in the Lane Next to AI: Do Robotaxis Make Human Drivers Bolder or Better?</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Jingyan Dai, Xinzhi Rao, Liangfei Qiu</div>
                 <div class="pub-venue">Working Paper</div>
+                <div class="pub-links">
+                    <button class="abstract-btn" onclick="toggleAbstract('abstract-robotaxis')">Abstract</button>
+                </div>
+                <div class="abstract-content" id="abstract-robotaxis">
+                    <div class="abstract-text">
+                        <strong>Abstract:</strong> The rapid development and deployment of robotaxis mark a transformative shift in urban mobility, offering a novel transportation mode with far-reaching implications for traffic systems, public safety, and human behavior. Although robotaxis are believed to be safer than human drivers, it remains unknown how they may affect human driver behavior. Under the framework of social learning theory, human drivers may adopt safer driving behaviors by observing the lawful and consistent patterns of robotaxis. Conversely, in line with risk compensation theory, the perceived low-risk environment due to robotaxis' conservative and predictable nature may prompt them to engage in more aggressive driving. Our study addresses this ambiguity by exploiting a natural experiment and investigating the impact of robotaxis on human traffic violations, leveraging a unique panel dataset from Phoenix. Our findings highlight that following the presence of robotaxis, human drivers reduce traffic violations by approximately 19% on average, reinforcing the social learning effect. We further examine the heterogeneous impacts, revealing a pronounced learning effect in contexts with elevated attention to robotaxis and a diminished effect among elderly drivers. Our study contributes to the Information Systems literature by uncovering the positive social externalities of an emerging but underexplored application of artificial intelligence.
+                    </div>
+                </div>
             </div>
 
             <div class="publication">
@@ -692,19 +751,42 @@
                 <div class="pub-title">Does Digital Mental Healthcare Service Access Affect Care Outcomes? Evidence from a Natural Experiment</div>
                 <div class="pub-authors">Guohou Shan, <strong>Jiayuan Tian</strong> (Co-first author), Michael Rivera, Liangfei Qiu</div>
                 <div class="pub-venue">Working Paper</div>
+                <div class="pub-links">
+                    <button class="abstract-btn" onclick="toggleAbstract('abstract-mental-healthcare')">Abstract</button>
+                </div>
+                <div class="abstract-content" id="abstract-mental-healthcare">
+                    <div class="abstract-text">
+                        <strong>Abstract:</strong> Depression and anxiety are common mental health conditions that demand appropriate treatment and care. Digital mental healthcare platforms have emerged as a recent solution to address this issue. However, it remains unclear how access to mental healthcare services over digital platforms can impact care outcomes. To explore this, we leverage a natural experiment and examine the impact of the introduction of Done, a digital mental healthcare platform, on care outcomes in the United States. Using a difference-in-differences (DID) estimation on more than ten years of county-level data, we find that the introduction of digital mental healthcare platforms can significantly reduce average mentally unhealthy days by 1.71% and the percentage of adult smokers by 34.6%. Moreover, our results suggest that this impact is more pronounced in counties with higher percentages of disadvantaged groups and internet penetration, confirming the theoretical mechanisms of accessibility and availability. Our study has both theoretical and practical implications for digital platform owners, managers, and county policymakers, providing insights into how digital platforms can be used to enhance mental healthcare outcomes.
+                    </div>
+                </div>
             </div>
           
           <div class="publication">
-                <div class="pub-title">Angel or Devil : Telehealth Across Borderlines and
-Healthcare Outcomes</div>
+                <div class="pub-title">Angel or Devil : Telehealth Across Borderlines and Healthcare Outcomes</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Guohou Shan, Liangfei Qiu</div>
                 <div class="pub-venue">Working Paper</div>
+                <div class="pub-links">
+                    <button class="abstract-btn" onclick="toggleAbstract('abstract-telehealth-border')">Abstract</button>
+                </div>
+                <div class="abstract-content" id="abstract-telehealth-border">
+                    <div class="abstract-text">
+                        <strong>Abstract:</strong> Telehealth adoption is becoming common in the healthcare industry, aiming to improve the equitable allocation of healthcare resources across different counties and states. However, it could be a double-edged sword. On the one hand, the adoption of telehealth could benefit undeveloped areas where patients could access more resources from developed areas through telehealth. On the other hand, the adoption of telehealth could drain healthcare resources in developed areas, worsening the quality of life. Aiming to uncover the effect of telehealth adoption, we leverage a Quasi-natural experiment, states' entry into the Interstate Medical Licensure Compact, with the difference-in-difference model by analyzing ten years of data across the counties in the United States. Our results reveal that joining interstate telehealth compacts does not necessarily improve the quality of life. In contrast, the adoption of telehealth increases patients' physically unhealthy days. Also, we found that the rural rate moderates the main effect. Specifically, telehealth adoption benefits the rural area more than the urban area. Our findings have important managerial implications for policymakers.
+                    </div>
+                </div>
             </div>
           
           <div class="publication">
                 <div class="pub-title">An Empirical Study of the Feedback Source on Real-time Doctor Feedback in a Crisis</div>
                 <div class="pub-authors"><strong>Jiayuan Tian</strong>, Guohou Shan, Michael Rivera, Liangfei Qiu</div>
                 <div class="pub-venue">Working Paper</div>
+                <div class="pub-links">
+                    <button class="abstract-btn" onclick="toggleAbstract('abstract-feedback-crisis')">Abstract</button>
+                </div>
+                <div class="abstract-content" id="abstract-feedback-crisis">
+                    <div class="abstract-text">
+                        <strong>Abstract:</strong> Real-time feedback can improve clinical outcomes in healthcare environments like hospitals and foster a more engaged, resilient workforce. Within hospitals, the exchange of real-time feedback between physicians and residents provides valuable insights into workplace behavioral competencies. A public health crisis may differentially affect the feedback-writing behaviors of physicians and residents toward their colleagues. Crises can intensify incidents against caregivers, including physicians and residents, highlighting the heightened risks they face. This study explores how physicians and residents may differ in their generation of performance feedback during a crisis. Furthermore, we assess whether the feedback writers' network embeddedness moderates the effect, given its role in shaping feedback behaviors. Leveraging a natural experiment, we conduct difference-in-difference models on proprietary data. We found that physicians are nicer during a public health crisis in providing their real-time feedback, and the network embeddedness further enhances the impact. Our research has important theoretical and managerial implications.
+                    </div>
+                </div>
             </div>
 
             <h3>Selected Conference Presentations (2023-2025)</h3>
@@ -841,5 +923,32 @@ at UF, as a senior, and Professor Tian is one of my favorite instructors I've ha
             <p>&copy; 2025 (Justin) Jiayuan Tian. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleAbstract(abstractId) {
+            const abstractContent = document.getElementById(abstractId);
+            const button = document.querySelector(`[onclick="toggleAbstract('${abstractId}')"]`);
+            
+            if (abstractContent.classList.contains('expanded')) {
+                abstractContent.classList.remove('expanded');
+                button.textContent = 'Abstract';
+                button.classList.remove('active');
+            } else {
+                // Close all other abstracts first
+                document.querySelectorAll('.abstract-content.expanded').forEach(content => {
+                    content.classList.remove('expanded');
+                });
+                document.querySelectorAll('.abstract-btn.active').forEach(btn => {
+                    btn.textContent = 'Abstract';
+                    btn.classList.remove('active');
+                });
+                
+                // Open the selected abstract
+                abstractContent.classList.add('expanded');
+                button.textContent = 'Hide Abstract';
+                button.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
